@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chat IA Personalizada
+
+Este es un proyecto Next.js que sirve como plataforma para integrar y demostrar diversos sistemas y funcionalidades de Inteligencia Artificial (IA), ofreciendo una interfaz moderna y un diseño limpio.
+
+## Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/) (v15+ con App Router y Turbopack)
+- **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
+- **UI:** [Tailwind CSS](https://tailwindcss.com/) (v4) con [Shadcn/UI](https://ui.shadcn.com/)
+- **Iconos:** [Lucide React](https://lucide.dev/)
+- **Animaciones:** [tw-animate-css](https://github.com/your-repo/tw-animate-css) (si aplica, ajustar enlace)
+- **Linting:** [ESLint](https://eslint.org/)
+- **Gestor de Paquetes:** [pnpm](https://pnpm.io/) (basado en `pnpm-lock.yaml`)
 
 ## Getting Started
 
-First, run the development server:
+Sigue estos pasos para configurar y ejecutar el proyecto localmente.
+
+### Prerrequisitos
+
+- Node.js (v20+ recomendado)
+- pnpm (o el gestor de paquetes que prefieras: npm, yarn)
+
+### Instalación
+
+1. Clona el repositorio:
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd chat-ia-personalizada
+   ```
+2. Instala las dependencias:
+   ```bash
+   pnpm install
+   # o
+   # npm install
+   # o
+   # yarn install
+   ```
+
+### Ejecución (Modo Desarrollo)
+
+Inicia el servidor de desarrollo (con Turbopack):
 
 ```bash
+pnpm run dev
+# o
 npm run dev
-# or
+# o
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+La página se actualizará automáticamente a medida que edites los archivos.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Build para Producción
 
-## Learn More
+```bash
+pnpm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Iniciar Servidor de Producción
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Estructura del Proyecto
 
-## Deploy on Vercel
+Una visión general de las carpetas clave:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `app/`: Contiene las rutas principales de la aplicación (App Router).
+- `components/`: Componentes reutilizables de la interfaz de usuario (basados en Shadcn/UI).
+- `views/`: Componentes de página que implementan diferentes funcionalidades de IA, como asistentes, procesamiento de audio, revisión de código, métricas en tiempo real, etc.
+- `lib/`: Utilidades y lógica compartida.
+- `hooks/`: Hooks personalizados de React.
+- `ai/`: Lógica relacionada con la integración de IA.
+- `public/`: Archivos estáticos.
+- `styles/`: Archivos de estilos globales (`globals.css`).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Configuración
+
+- **Tailwind CSS:** Configurado en `tailwind.config.js` y `postcss.config.mjs`.
+- **TypeScript:** Configurado en `tsconfig.json`.
+- **Next.js:** Configurado en `next.config.mjs` (incluye `assetPrefix` y configuración de imágenes remotas para Cloudinary).
+- **Variables de Entorno:** Crea un archivo `.env.local` basado en `.env.example` para configurar variables específicas del entorno.
+
+## Despliegue
+
+La forma más sencilla de desplegar esta aplicación Next.js es utilizando la [Plataforma Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme), de los creadores de Next.js.
+
+Consulta la [documentación de despliegue de Next.js](https://nextjs.org/docs/app/building-your-application/deploying) para más detalles.
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request para discutir cambios.
