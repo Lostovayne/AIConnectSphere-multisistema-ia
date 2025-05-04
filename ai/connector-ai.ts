@@ -1,16 +1,13 @@
 import { groq } from "@/lib/grok";
-import { generateText } from "ai";
-import { getMCPTools } from "./tools/mcp-server";
+import { streamText } from "ai";
 
 const model = groq("meta-llama/llama-4-scout-17b-16e-instruct", {
   parallelToolCalls: true,
 });
 
 async function main() {
-  const prompt =
-    "Podrias decirme las caracteristicas que tiene Nextjs 15 ?";
-
-  const { text: answer } = await generateText({
+  const prompt = "Podrias decirme las caracteristicas que tiene Nextjs 15 ?";
+  const { textStream } = streamText({
     model,
     prompt,
     system: "Eres un experto en programacion web",
@@ -23,15 +20,17 @@ async function main() {
     //     execute: async ({ expression }) => mathjs.evaluate(expression),
     //   }),
     // },
-    tools: (await getMCPTools()).tools,
+    // tools: (await getMCPTools()).tools,
     maxSteps: 10,
     toolChoice: "auto",
     onStepFinish({ text, toolCalls, toolResults, finishReason, usage }) {
       console.log({ text, toolCalls, toolResults, finishReason, usage });
-      
     },
   });
-  console.log(`ANSWER: ${answer}`);
+
+  for await (const text of textStream) {
+    console.log(text); // partial text generatio
+  }
 }
 
 main();

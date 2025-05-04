@@ -94,3 +94,7 @@ Consulta la [documentación de despliegue de Next.js](https://nextjs.org/docs/ap
 ## Contribuciones
 
 Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request para discutir cambios.
+
+## Features
+
+1 **Que aprenda de mi codigo, integrar una bd de redis a la que consultar informacion , las respuestas se marcan con guardar y se agregan a redis como una base de codigo propia**
