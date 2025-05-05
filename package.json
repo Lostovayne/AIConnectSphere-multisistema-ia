@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ai-sdk/groq": "^1.2.8",
+    "@ai-sdk/react": "^1.2.11",
     "@arcjet/inspect": "1.0.0-beta.6",
     "@arcjet/next": "1.0.0-beta.6",
     "@radix-ui/react-alert-dialog": "^1.1.11",

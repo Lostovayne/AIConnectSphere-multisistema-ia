@@ -1,8 +1,5 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Experiment 02 - Crafted.is",
-};
+"use client";
+import { useChat } from "@ai-sdk/react";
 
 import { AppSidebar } from "@/components/app-sidebar";
 import Chat from "@/components/chat";
@@ -12,6 +9,12 @@ import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/side
 import UserDropdown from "@/components/user-dropdown";
 
 export default function Page() {
+  const { messages, input, handleInputChange, handleSubmit } = useChat({
+    api:"/api/chat"
+  });
+
+  console.log({messages});
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -50,34 +53,9 @@ export default function Page() {
           </div>
         </header>
         <SettingsPanelProvider>
-          <div className="flex h-[calc(100svh-4rem)] bg-[hsl(240_5%_92.16%)] md:rounded-s-3xl md:group-peer-data-[state=collapsed]/sidebar-inset:rounded-s-none transition-all ease-in-out duration-300">
+          <div className="flex h-[calc(100svh-4rem)] bg-[hsl(240_5%_92.16%)] md:rounded-s-3xl md:group-peer-data-[state=collapsed]/sidebar-inset:rounded-s-none transition-all ease-in-out duration-300 w-full">
             {/* renderizar el chat del usuario */}
-            <Chat>
-              <>
-                <ChatMessage isUser>
-                  <p>Hey Bolt, can you tell me more about AI Agents?</p>
-                </ChatMessage>
-                <ChatMessage>
-                  <p>
-                    AI agents are software that perceive their environment and act
-                    autonomously to achieve goals, making decisions, learning, and
-                    interacting. For example, an AI agent might schedule meetings by
-                    resolving conflicts, contacting participants, and finding optimal
-                    times—all without constant supervision.
-                  </p>
-                  <p>Let me know if you&lsquo;d like more details!</p>
-                </ChatMessage>
-                <ChatMessage isUser>
-                  <p>All clear, thank you!</p>
-                </ChatMessage>
-                <ChatMessage>
-                  <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic nisi ipsam, unde esse alias totam dolore nulla vitae molestiae, voluptatum in, natus iste soluta. Alias aperiam debitis sapiente pariatur perferendis.
-                  </p>
-                  <p>Let me know if you&lsquo;d like more details!</p>
-                </ChatMessage>
-              </>
-            </Chat>
+            <Chat/>
             <SettingsPanel />
           </div>
         </SettingsPanelProvider>
