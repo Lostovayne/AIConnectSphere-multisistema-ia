@@ -33,7 +33,9 @@ export default function Chat() {
 
   // Scroll to the latest message
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView();
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
   }, [messages]);
 
   // Handle typewriter animation for the latest assistant message
@@ -54,6 +56,10 @@ export default function Chat() {
           // Update text in smaller chunks for smoother animation
           setDisplayedText(fullText.slice(0, currentIndex + 1));
           currentIndex += 1; // Increment by 1 for precise character-by-character animation
+          // Scroll to the end during animation
+          messagesEndRef.current?.scrollIntoView({
+            behavior: "smooth",
+          });
         } else {
           clearInterval(interval);
         }
