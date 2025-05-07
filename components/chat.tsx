@@ -73,8 +73,8 @@ export default function Chat() {
   }, [messages]);
 
   return (
-    <ScrollArea className="flex-1 relative [&>div>div]:h-full w-full shadow-md md:rounded-s-[inherit] min-[1024px]:rounded-e-3xl bg-background">
-      <div className="h-full flex flex-col px-4 md:px-6 lg:px-8">
+    <ScrollArea className="flex-1 relative w-full shadow-md md:rounded-s-[inherit] min-[1024px]:rounded-e-3xl bg-background">
+      <div className="h-[calc(100svh-4rem)] flex flex-col px-4 md:px-6 lg:px-8">
         {/* Header */}
         <div className="py-5 bg-background sticky top-0 z-10 before:absolute before:inset-x-0 before:bottom-0 before:h-px before:bg-gradient-to-r before:from-black/[0.06] before:via-black/10 before:to-black/[0.06]">
           <div className="flex items-center justify-between gap-2">
@@ -123,22 +123,14 @@ export default function Chat() {
           <div className="max-w-3xl mx-auto w-full mt-6 space-y-6">
             <div className="text-center my-8">
               <div className="inline-flex items-center bg-white rounded-full border border-black/[0.08] shadow-xs text-xs font-medium py-1 px-3 text-foreground/80">
-                <RiShining2Line
-                  className="me-1.5 text-muted-foreground/70 -ms-1"
-                  size={14}
-                  aria-hidden="true"
-                />
+                <RiShining2Line className="me-1.5 text-muted-foreground/70 -ms-1" size={14} aria-hidden="true" />
                 Today
               </div>
             </div>
             {messages.map((message, index) => (
-              <ChatMessage
-                key={message.id}
-                isUser={message.role === "user"}
-              >
+              <ChatMessage key={message.id} isUser={message.role === "user"}>
                 <div>
-                  {message.role === "assistant" &&
-                  index === messages.length - 1 ? (
+                  {message.role === "assistant" && index === messages.length - 1 ? (
                     <span>{displayedText}</span> // Show animated text for the latest assistant message
                   ) : (
                     message.parts
@@ -173,11 +165,7 @@ export default function Chat() {
                       size="icon"
                       className="rounded-full size-8 border-none hover:bg-background hover:shadow-md transition-[box-shadow]"
                     >
-                      <RiAttachment2
-                        className="text-muted-foreground/70 size-5"
-                        size={20}
-                        aria-hidden="true"
-                      />
+                      <RiAttachment2 className="text-muted-foreground/70 size-5" size={20} aria-hidden="true" />
                       <span className="sr-only">Attach</span>
                     </Button>
                     <Button
@@ -185,11 +173,7 @@ export default function Chat() {
                       size="icon"
                       className="rounded-full size-8 border-none hover:bg-background hover:shadow-md transition-[box-shadow]"
                     >
-                      <RiMicLine
-                        className="text-muted-foreground/70 size-5"
-                        size={20}
-                        aria-hidden="true"
-                      />
+                      <RiMicLine className="text-muted-foreground/70 size-5" size={20} aria-hidden="true" />
                       <span className="sr-only">Audio</span>
                     </Button>
                     <Button
@@ -197,11 +181,7 @@ export default function Chat() {
                       size="icon"
                       className="rounded-full size-8 border-none hover:bg-background hover:shadow-md transition-[box-shadow]"
                     >
-                      <RiLeafLine
-                        className="text-muted-foreground/70 size-5"
-                        size={20}
-                        aria-hidden="true"
-                      />
+                      <RiLeafLine className="text-muted-foreground/70 size-5" size={20} aria-hidden="true" />
                       <span className="sr-only">Action</span>
                     </Button>
                   </div>
@@ -212,12 +192,7 @@ export default function Chat() {
                       size="icon"
                       className="rounded-full size-8 border-none hover:bg-background hover:shadow-md transition-[box-shadow]"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="none"
-                      >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
                         <g clipPath="url(#icon-a)">
                           <path
                             fill="url(#icon-b)"
